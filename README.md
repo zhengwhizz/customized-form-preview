@@ -34,6 +34,6 @@ export default {
     },
     formHtml: [String],
     buttonText: { type: String, default: "" }, // 按钮文字，不设置则不出现按钮
-    save: Function //回调方法
+    save: Function //回调方法 也可在父组件调用子组件的handleClick来获取数据，如： this.$refs.form2.handleClick();
   },
 ```
