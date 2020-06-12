@@ -23,3 +23,17 @@ export default {
 }
 </script>
 ```
+
+```javascript
+  props: {
+    formData: {
+      type: Object,
+      defaut: function() {
+        return {};
+      }
+    },
+    formHtml: [String],
+    buttonText: { type: String, default: "" }, // 按钮文字，不设置则不出现按钮
+    save: Function //回调方法
+  },
+```

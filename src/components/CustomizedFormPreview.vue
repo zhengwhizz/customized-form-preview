@@ -1,7 +1,16 @@
 <template>
   <div>
-    <form id="custom-form">
+    <form ref="form">
       <div v-html="formHtml"></div>
+      <div v-if="buttonText" style="text-align:center;margin-top:16px;">
+        <button
+          type="button"
+          class="el-button el-button--primary el-button--mini"
+          @click="handleClick"
+        >
+          <span>{{buttonText}}</span>
+        </button>
+      </div>
     </form>
   </div>
 </template>
@@ -18,9 +27,20 @@ export default {
         return {};
       }
     },
-    formHtml: [String]
+    formHtml: [String],
+    buttonText: { type: String, default: "" },
+    save: Function
   },
+  watch: {},
   methods: {
+    handleClick() {
+      var formData = new FormData(this.$refs["form"]);
+      var data = {};
+      for (var pair of formData.entries()) {
+        data[pair[0]] = pair[1];
+      }
+      this.$emit("save", data);
+    },
     setValue(element, value) {
       switch (element.type) {
         case "radio":
@@ -77,7 +97,7 @@ export default {
     }
   },
   mounted() {
-    var form = document.forms["custom-form"];
+    var form = this.$refs["form"];
 
     for (const key in this.formData) {
       if (this.formData.hasOwnProperty(key)) {
