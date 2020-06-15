@@ -1,5 +1,4 @@
 <template>
-  <div>
     <form ref="form">
       <div v-html="formHtml"></div>
       <div v-if="buttonText" style="text-align:center;margin-top:16px;">
@@ -12,7 +11,6 @@
         </button>
       </div>
     </form>
-  </div>
 </template>
 
 <script>

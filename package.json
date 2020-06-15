@@ -1,6 +1,6 @@
 {
   "name": "customized-form-preview",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "customized form preview / bind form data & values",
   "main": "index.js",
   "scripts": {
